@@ -5,10 +5,10 @@ import 'package:apicall/repos/product_repo.dart';
 import 'package:http/http.dart';
 
 class ProductController{
-  final user_repo = ProductRepo();
+  final productRepo = ProductRepo();
 
   Future<List<Products>>getProducts() async{
-    final response = await user_repo.getUsers();
+    final response = await productRepo.getProducts();
     final data = jsonDecode(response.body);
     List<Products> products = [];
 

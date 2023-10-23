@@ -15,13 +15,32 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  //List<User> users = [];
   @override
   Widget build(BuildContext context) {
-    //ProductController().getProducts();
     return  Scaffold(
-      appBar: AppBar(title: const Text("Api Call"),
+      appBar: AppBar(title: const Text("Products"),
         centerTitle: true,
+      ),
+      body: FutureBuilder(
+        future: ProductController().getProducts(),
+        builder: (context, snapshot){
+          snapshot.data;
+          if(snapshot.data == null){
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          final product = snapshot.data!;
+          return ListView.builder(
+              itemCount: product.length,
+              itemBuilder: (context, index){
+                return Column(
+                  children: [
+                    ListTile(subtitle: Image.network(product[index].thumbnail),title: Center(child: Text(product[index].title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),)),),
+                  ],
+                );
+              });
+        },
       ),
     );
   }
