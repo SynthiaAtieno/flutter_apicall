@@ -13,30 +13,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   //List<User> users = [];
   @override
   Widget build(BuildContext context) {
+    UserRepo().getUsers();
     return  Scaffold(
       appBar: AppBar(title: const Text("Api Call"),
+        centerTitle: true,
       ),
-
-      body: ListView.builder(itemBuilder: (context, index){
-        //final user = users[index];
-        return ListTile(
-         // leading: Text(user.phone),
-        );
-
-      }),
-      //floatingActionButton: FloatingActionButton(onPressed: fetchUser,),
-
     );
   }
-  /*void fetchUser() async{
 
-    final uri = Uri.parse('https://randomuser.me/api/?results=50');
-    final response = await http.get(uri);
-    final body = response.body;
-
-    final json = jsonDecode(body);
-  }*/
 }

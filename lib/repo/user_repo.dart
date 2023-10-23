@@ -1,7 +1,7 @@
 
 import 'package:http/http.dart' as http;
-class User {
-   String email;
+class UserRepo {
+  /* String email;
    final UserName name;
    String phone;
    String nat;
@@ -16,9 +16,9 @@ class UserName{
    String title;
 
    UserName({required this.first, required this.last, required this.title});
-
+*/
    getUsers() async {
-      final url = Uri.parse("uri");
+      final url = Uri.parse("https://dummyjson.com/products");
       final response = await http.get(url);
       print(response.body);
    }
