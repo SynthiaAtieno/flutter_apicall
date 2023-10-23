@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../repo/User.dart';
+import '../repo/user_repo.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<User> users = [];
+  //List<User> users = [];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -21,22 +21,22 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       body: ListView.builder(itemBuilder: (context, index){
-        final user = users[index];
+        //final user = users[index];
         return ListTile(
-          leading: Text(user.phone),
+         // leading: Text(user.phone),
         );
 
       }),
-      floatingActionButton: FloatingActionButton(onPressed: fetchUser,),
+      //floatingActionButton: FloatingActionButton(onPressed: fetchUser,),
 
     );
   }
-  void fetchUser() async{
+  /*void fetchUser() async{
 
     final uri = Uri.parse('https://randomuser.me/api/?results=50');
     final response = await http.get(uri);
     final body = response.body;
 
     final json = jsonDecode(body);
-  }
+  }*/
 }
