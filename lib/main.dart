@@ -1,4 +1,6 @@
+import 'package:apicall/screen/Pproduct_screen.dart';
 import 'package:apicall/screen/homescreen.dart';
+import 'package:apicall/screen/settings_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      routes: {
+        '/settingsPage': (context) => const SettingsPage(),
+        '/productsPage': (context) => const ProductPage(),
+      },
     );
   }
 }
